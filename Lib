@@ -24,20 +24,20 @@ library.theme = {
     font = Enum.Font.Code,
     background = "rbxassetid://5553946656",
     tilesize = 90,
-    cursor = true,
+    cursor = false,
     cursorimg = "https://t0.rbxcdn.com/42f66da98c40252ee151326a82aab51f",
-    backgroundcolor = Color3.fromRGB(25,25,112),
-    tabstextcolor = Color3.fromRGB(255,255,255),
-    bordercolor = Color3.fromRGB(0,0,0),
-    accentcolor = Color3.fromRGB(0,0,0),
-    accentcolor2 = Color3.fromRGB(0,0,0),
-    outlinecolor = Color3.fromRGB(0,0,0),
-    outlinecolor2 = Color3.fromRGB(0,0,0),
-    sectorcolor = Color3.fromRGB(375,0,130),
+    backgroundcolor = Color3.fromRGB(20, 20, 20),
+    tabstextcolor = Color3.fromRGB(255, 255, 255),
+    bordercolor = Color3.fromRGB(60, 60, 60),
+    accentcolor = Color3.fromRGB(255, 105, 180),
+    accentcolor2 = Color3.fromRGB(255, 20, 147),
+    outlinecolor = Color3.fromRGB(20, 20, 20),
+    outlinecolor2 = Color3.fromRGB(0, 0, 0),
+    sectorcolor = Color3.fromRGB(30, 30, 30),
     toptextcolor = Color3.fromRGB(255, 255, 255),
-    topheight = 48,
+    topheight = 55,
     topcolor = Color3.fromRGB(30, 30, 30),
-    topcolor2 = Color3.fromRGB(30, 30, 30),
+    topcolor2 = Color3.fromRGB(20, 20, 20),
     buttoncolor = Color3.fromRGB(49, 49, 49),
     buttoncolor2 = Color3.fromRGB(39, 39, 39),
     itemscolor = Color3.fromRGB(200, 200, 200),
@@ -75,7 +75,7 @@ function library:CreateWatermark(name, position)
     local gamename = marketplaceservice:GetProductInfo(game.PlaceId).Name
     local watermark = { }
     watermark.Visible = true
-    watermark.text = " " .. name:gsub("{game}", gamename):gsub("{fps}", "0 FPS") .. " "
+    watermark.text = "Doomware Reborn" .. name:gsub("{game}", gamename):gsub("{fps}", "0 FPS") .. " "
 
     watermark.main = Instance.new("ScreenGui", coregui)
     watermark.main.Name = "Watermark"
@@ -161,7 +161,7 @@ function library:CreateWatermark(name, position)
         watermark.BlackOutline.Visible = watermark.Visible
 
         if not name:find("{fps}") then
-            watermark.label.Text = " " .. name:gsub("{game}", gamename):gsub("{fps}", "0 FPS") .. " "
+            watermark.label.Text = "Doomware Reborn" .. name:gsub("{game}", gamename):gsub("{fps}", "0 FPS") .. " "
         end
 
         if name:find("{fps}") then
@@ -173,7 +173,7 @@ function library:CreateWatermark(name, position)
                 startTime = currentTime
 
                 if fps ~= oldfps then
-                    watermark.label.Text = " " .. name:gsub("{game}", gamename):gsub("{fps}", fps .. " FPS") .. " "
+                    watermark.label.Text = "Doomware" .. name:gsub("{game}", gamename):gsub("{fps}", fps .. " FPS") .. " "
         
                     watermark.label.Size = UDim2.new(0, watermark.label.TextBounds.X+10, 0, 25)
                     watermark.mainbar.Size = UDim2.new(0, watermark.label.TextBounds.X, 0, 25)
