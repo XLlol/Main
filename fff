@@ -1,39 +1,3 @@
-AimbotPred = 1.65
-SilentAimPred = 0.165
-getgenv().SilentAimAutoPred = true
-getgenv().AimbotAutoPred = true
-while task.wait(1) do
-    if SilentAimAutoPred then
-        local PingStats = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-        local Value = tostring(PingStats)
-        local PingValue = Value:split(" ")
-        local PingNumber = tonumber(PingValue[1])
-    
-        if PingNumber < 130 then
-            SilentAimPred = PingNumber / 1000 + 0.037
-        else
-            SilentAimPred = PingNumber / 1000 + 0.033
-        end
-    else
-        SilentAimPred = 0.165
-    end
-    
-    if AimbotAutoPred then
-        local PingStats = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-        local Value = tostring(PingStats)
-        local PingValue = Value:split(" ")
-        local PingNumber = tonumber(PingValue[1])
-    
-        if PingNumber < 130 then
-            AimbotPred = PingNumber / 10 + 0.37
-        else
-            AimbotPred = PingNumber / 10 + 0.33
-        end
-    else
-        AimbotPred = 1.65
-    end
-end
-
 
 local gm = getrawmetatable(game)
 setreadonly(gm, false)
